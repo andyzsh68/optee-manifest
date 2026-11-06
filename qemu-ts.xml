@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+        <remote name="github" fetch="https://github.com" />
+        <remote name="qemu-ts" fetch="https://github.com/andyzsh68" />
+        <remote name="tfo" fetch="https://git.trustedfirmware.org" />
+        <remote name="arm-gitlab" fetch="https://git.gitlab.arm.com" />
+
+        <default remote="github" sync-j="4" />
+
+        <project path="build" name="optee-build.git" remote="qemu-ts"
+                 revision="cdd3d50117604b7dcf8f50c1bbc120f9133e003f"
+                 upstream="refs/heads/qemu-ts-support" dest-branch="qemu-ts-support">
+                <linkfile src="qemu_v8-psa-sp.mk" dest="build/Makefile" />
+        </project>
+
+        <project path="buildroot" name="buildroot/buildroot.git"
+                 revision="fcde5363aa35220a1f201159a05de652ec6f811f"
+                 upstream="refs/tags/2025.05" />
+        <project path="linux" name="linaro-swg/linux.git"
+                 revision="cf6e3218c25183cbc45551e85d0dd531f00fcc3d"
+                 upstream="refs/heads/optee" />
+        <project path="linux-arm-ffa-user" name="linux-arm/linux-trusted-services.git" remote="arm-gitlab"
+                 revision="885af0d1c3bf11aba12320d5484429160a9b9f26"
+                 upstream="refs/tags/debugfs-v5.0.2" />
+        <project path="mbedtls" name="Mbed-TLS/mbedtls.git" sync-s="true"
+                 revision="e185d7fd85499c8ce5ca2a54f5cf8fe7dbe3f8df"
+                 upstream="refs/tags/mbedtls-3.6.5" />
+        <project path="optee_client" name="OP-TEE/optee_client.git"
+                 revision="9f5e90918093c1d1cd264d8149081b64ab7ba672"
+                 upstream="refs/heads/master" />
+        <project path="optee_examples" name="linaro-swg/optee_examples.git"
+                 revision="934c7edb74a26e90f68024cf441073528444177f"
+                 upstream="refs/heads/master" />
+        <project path="optee_ftpm" name="OP-TEE/optee_ftpm.git"
+                 revision="9544ebeca8cf692f038a4e1e46c4b486d3eb8b42"
+                 upstream="refs/heads/master" />
+        <project path="optee_os" name="OP-TEE/optee_os.git"
+                 revision="496fea3c81a4375e36b41423346499a85c89122e"
+                 upstream="refs/heads/master" />
+        <project path="optee_test" name="OP-TEE/optee_test.git"
+                 revision="c7a563fe0e1492a9e4ba110802e3b2dc5a5bfd99"
+                 upstream="refs/heads/master" />
+        <project path="qemu" name="qemu/qemu.git"
+                 revision="7c949c53e936aa3a658d84ab53bae5cadaa5d59c"
+                 upstream="refs/tags/v10.0.0" />
+        <project path="trusted-firmware-a" name="TF-A/trusted-firmware-a.git" remote="tfo" sync-s="true"
+                 revision="1d5aa939bc8d3d892e2ed9945fa50e36a1a924cc"
+                 upstream="refs/tags/v2.14.0" />
+        <project path="trusted-services" name="TS/trusted-services.git" remote="tfo"
+                 revision="a5db25bc3f2892781a07620af5d6625900988281"
+                 upstream="refs/tags/v1.3.0" />
+        <project path="u-boot" name="u-boot/u-boot.git"
+                 revision="25049ad560826f7dc1c4740883b0016014a59789"
+                 upstream="refs/tags/v2024.04" />
+</manifest>
